@@ -1,13 +1,17 @@
 def add_tuple(tuple_a=(), tuple_b=()):
 
-    len_a = len(tuple_a)
-    len_b = len(tuple_b)
-    sum_a_0 = (tuple_a[0] if len_a > 0 else 0)
-    sum_b_0 = (tuple_b[0] if len_b > 0 else 0)
-    sum_0 = sum_a_0 + sum_b_0
+    if len(tuple_a) == 0:
+        tuple_a += (0, 0)
+    elif len(tuple_a) == 1:
+        tuple_a += (0,)
+    elif len(tuple_a) > 2:
+        tuple_a = tuple_a[:2]
 
-    sum_a_1 = (tuple_a[1] if len_a > 1 else 0)
-    sum_b_1 = (tuple_b[1] if len_b > 1 else 0)
-    sum_1 = sum_a_1 + sum_b_1
-    sums = (sum_0, sum_1)
-    return sums
+    if len(tuple_b) == 0:
+        tuple_b += (0, 0)
+    elif len(tuple_b) == 1:
+        tuple_b += (0,)
+    elif len(tuple_b) > 2:
+        tuple_b = tuple_b[:2]
+    result = tuple(sum(item) for item in zip(tuple_a, tuple_b))
+    return result
