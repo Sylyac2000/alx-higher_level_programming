@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """
-This module is about 6-square
-Write a class Square that defines a square by: (based on 5-square.py)
+Module 6-square
+Defines class Square with private size and position; and public area
+Can access and update size and position
+Can print to stdout the square using #'s
 """
 
 
@@ -9,20 +11,29 @@ class Square:
     """
     class Square definition
 
-    Attributes:
-        size : size of a side in square
-        position : tuple of integers
+    Args:
+        size (int): size of a side in square
+
+    Functions:
+        __init__(self, size, position)
+        size(self)
+        size(self, value)
+        position(self)
+        position(self, value)
+        area(self)
+        my_print(self)
     """
+
     def __init__(self, size=0, position=(0, 0)):
         """
         Initializes square
 
         Attributes:
-            size (int): the size of a side of square
-            position (int): tuple
+            size (int): defaults to 0 if none; don't use __size to call setter
+            position (int): tuple of two positive integers
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -39,7 +50,7 @@ class Square:
         Setter
 
         Args:
-            value: sets size to value, if int and >= 0
+            value: sets size to value if int and >= 0
         """
         if type(value) is not int:
             raise TypeError("size must be an integer")
