@@ -17,10 +17,6 @@ Test signed and unsigned ints and floats:
      >>> print(add_integer(-2.9, 1))
      -1
 
-Test default b=98 value:
-     >>> print(add_integer(1))
-     99
-
 FAIL CASES:
 
 Test no args:
@@ -38,3 +34,13 @@ Test special float NaN in Python (not a number):
      Traceback (most recent call last):
      ...
      ValueError: cannot convert float NaN to integer
+	 
+Test max/min numbers Python can handle ("inf" is infinity):
+     >>> print(add_integer(float("inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
+     >>> print(add_integer(float("-inf")))
+     Traceback (most recent call last):
+     ...
+     OverflowError: cannot convert float infinity to integer
