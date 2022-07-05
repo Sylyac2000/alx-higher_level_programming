@@ -6,6 +6,6 @@ Module 3-is_kind_of_class.py
 
 
 def is_kind_of_class(obj, a_class):
-    """returns True if obj is an instance 
+    """returns True if obj is an instance
     of class that it inherited from"""
     return isinstance(obj, a_class)
