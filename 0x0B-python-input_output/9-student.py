@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This module is about 2-square
-Write a class Square that defines a square by: (based on 1-square.py)
+Module 9-student class
 """
 
 
