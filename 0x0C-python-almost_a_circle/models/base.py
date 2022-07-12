@@ -5,6 +5,7 @@ This module is about base.py
 
 
 import json
+import csv
 
 
 class Base:
@@ -75,3 +76,37 @@ class Base:
         except Exception as exc:
             pass
         return alist
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as f:
+            csvwriter = csv.writer(f)
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    csvwriter.writerow([obj.id, obj.width,
+                                        obj.height, obj.x, obj.y])
+                if cls.__name__ == "Square":
+                    csvwriter.writerow([obj.id, obj.size, obj.x, obj.y])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        listobjs = []
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'r', newline='') as f:
+            csvreader = csv.reader(f)
+            for row in csvreader:
+                if cls.__name__ == "Rectangle":
+                    dic = {"id": int(row[0]),
+                           "width": int(row[1]),
+                           "height": int(row[2]),
+                           "x": int(row[3]),
+                           "y": int(row[4])}
+                if cls.__name__ == "Square":
+                    dic = {"id": int(row[0]),
+                           "size": int(row[1]),
+                           "x": int(row[2]),
+                           "y": int(row[3])}
+                obj = cls.create(**dic)
+                listobjs.append(obj)
+        return listobjs
