@@ -45,10 +45,8 @@ class Square(Rectangle):
                 if k == 0:
                     self.id = v
                 elif k == 1:
-                    self.width = v
+                    self.size = v
                 elif k == 2:
-                    self.height = v
-                elif k == 3:
                     self.x = v
                 else:
                     self.y = v
