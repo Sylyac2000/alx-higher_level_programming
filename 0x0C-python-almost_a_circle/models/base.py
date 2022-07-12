@@ -3,6 +3,7 @@
 This module is about base.py
 """
 
+
 class Base:
     """
     class Base definition
@@ -11,9 +12,8 @@ class Base:
     Methods:
         __init__(self, id=None)
     """
-    
     __nb_objects = 0
-    
+
     def __init__(self, id=None):
         """
         Initializes base
