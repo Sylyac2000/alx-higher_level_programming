@@ -62,3 +62,17 @@ class TestBase(unittest.TestCase):
         self.assertTrue(len(d3) == 0)
         self.assertTrue(type(strchd3) == str)
         self.assertTrue(strchd3, "[]")
+
+    def test_from_json_string(self):
+        """Test JSON string translates into Python dict"""
+        s0 = '[{"id": 1, "width": 2, "height": 3, "x": 4, "y": 5},\
+               {"id": 6, "width": 7, "height": 8, "x": 9, "y": 10}]'
+        strs0 = Base.from_json_string(s0)
+        self.assertTrue(type(s0) == str)
+        self.assertTrue(type(strs0) == list)
+        self.assertTrue(type(strs0[0]) == dict)
+        self.assertTrue(strs0,
+                        [{"id": 1, "width": 2, "height": 3, "x": 4, "y": 5},
+                         {"id": 6, "width": 7, "height": 8, "x": 9, "y": 10}])
+        self.assertTrue(strs0[0],
+                        {"id": 1, "width": 2, "height": 3, "x": 4, "y": 5})
