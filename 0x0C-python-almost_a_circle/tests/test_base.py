@@ -56,7 +56,7 @@ class TestBase(unittest.TestCase):
         strchd2 = Base.to_json_string([d2])
         self.assertTrue(type(strchd2) == str)
         self.assertTrue(strchd2, "[]")
-        
+
         d3 = dict()
         strchd3 = Base.to_json_string([d3])
         self.assertTrue(len(d3) == 0)
@@ -76,3 +76,11 @@ class TestBase(unittest.TestCase):
                          {"id": 6, "width": 7, "height": 8, "x": 9, "y": 10}])
         self.assertTrue(strs0[0],
                         {"id": 1, "width": 2, "height": 3, "x": 4, "y": 5})
+        s2 = None
+        strs2 = Base.from_json_string(s2)
+        self.assertTrue(type(strs2) == list)
+        self.assertTrue(strs2 == [])
+        s3 = ""
+        strs3 = Base.from_json_string(s3)
+        self.assertTrue(type(strs3) == list)
+        self.assertTrue(strs3 == [])
