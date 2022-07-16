@@ -23,7 +23,6 @@ class TestBase(unittest.TestCase):
         """ test id not given """
         self.assertTrue(Base(), self.id == 1)
         self.assertTrue(Base(), self.id == 2)
-        self.assertTrue(Base(), self.id == 3)
 
     def test_private_attr_access(self):
         """Test private attr are not accessible"""
