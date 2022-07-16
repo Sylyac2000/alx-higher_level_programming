@@ -50,3 +50,13 @@ class TestBase(unittest.TestCase):
         self.assertTrue(strd01,
                         [{"id": 1, "width": 2, "height": 3, "x": 4, "y": 5},
                          {"id": 6, "width": 7, "height": 8, "x": 9, "y": 10}])
+        d2 = None
+        strchd2 = Base.to_json_string([d2])
+        self.assertTrue(type(strchd2) == str)
+        self.assertTrue(strchd2, "[]")
+        
+        d3 = dict()
+        strchd3 = Base.to_json_string([d3])
+        self.assertTrue(len(d3) == 0)
+        self.assertTrue(type(strchd3) == str)
+        self.assertTrue(strchd3, "[]")
