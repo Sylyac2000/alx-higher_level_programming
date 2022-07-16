@@ -12,6 +12,9 @@ Base = base.Base
 
 class TestBase(unittest.TestCase):
 
+    def setUp(self):
+        pass
+
     def test_id_exist(self):
         """ test id given """
         self.assertTrue(Base(89), self.id == 89)
