@@ -14,7 +14,7 @@ class TestBase(unittest.TestCase):
 
     def test_id_exist(self):
         """ test id given """
-        self.assertTrue(Base(12), self.id == 12)
+        self.assertTrue(Base(89), self.id == 89)
         self.assertTrue(Base(0), self.id == 0)
         self.assertTrue(Base(1), self.id == 1)
         self.assertTrue(Base(-5), self.id == -5)
