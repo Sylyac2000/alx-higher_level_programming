@@ -30,4 +30,6 @@ How to inherit an object from another
 2. Rectangle #2
 3. Rectangle #3
 4. Rectangle #4
+5. Square #0
+
 
