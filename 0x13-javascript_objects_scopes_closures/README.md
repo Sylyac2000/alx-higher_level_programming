@@ -26,3 +26,5 @@ How to inherit an object from another
 
 ## Description of what each file shows:
 0. Rectangle #0
+1. Rectangle #1
+
