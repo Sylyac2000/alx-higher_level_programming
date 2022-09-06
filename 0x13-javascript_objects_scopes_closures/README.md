@@ -28,4 +28,5 @@ How to inherit an object from another
 0. Rectangle #0
 1. Rectangle #1
 2. Rectangle #2
+3. Rectangle #3
 
