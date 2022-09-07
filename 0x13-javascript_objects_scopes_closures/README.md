@@ -34,5 +34,4 @@ How to inherit an object from another
 6. Square #1
 7. Occurrences
 8. Esrever
-
-
+9. Log me
