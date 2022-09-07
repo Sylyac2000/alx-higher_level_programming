@@ -35,3 +35,4 @@ How to inherit an object from another
 7. Occurrences
 8. Esrever
 9. Log me
+10. Number conversion
