@@ -9,7 +9,7 @@ if __name__ == "__main__":
     import MySQLdb
 
     if len(argv) != 5:
-        print("format is:0-select_states.py username password database state")
+        print("format is: 2-my_filter_states.py username password database state")
     else:
         list_dbparam = argv[1:]
         # Open database connection
@@ -25,7 +25,8 @@ if __name__ == "__main__":
         cursor.execute(sql)
         rows = cursor.fetchall()
         for row in rows:
-            print(row)
+            if row[1] == list_dbparam[3]:
+                print(row)
 
         # disconnect from server
         db.close()
