@@ -26,7 +26,8 @@ if __name__ == "__main__":
         cursor.execute(sql)
         rows = cursor.fetchall()
         for row in rows:
-            print(row)
+            if row[1][0] == 'N':
+                print(row)
 
         # disconnect from server
         db.close()
