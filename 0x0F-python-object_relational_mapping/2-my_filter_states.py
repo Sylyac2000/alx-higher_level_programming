@@ -9,7 +9,7 @@ if __name__ == "__main__":
     import MySQLdb
 
     if len(argv) != 5:
-        print("format is: 2-my_filter_states.py username password database state")
+        print("usage:2-my_filter_states.py username password database state")
     else:
         list_dbparam = argv[1:]
         # Open database connection
