@@ -18,17 +18,14 @@ if __name__ == "__main__":
         list_dbparam = argv[1:]
         # Open database connection
         engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.
-                               format(list_dbparam[0],
-                               list_dbparam[1], list_dbparam[2]),
-                               pool_pre_ping=True)
+                               format(list_dbparam[0], list_dbparam[1],
+                                      list_dbparam[2]), pool_pre_ping=True)
 
         # create session
-        Session = sessionmaker()
-        Session.configure(bind=engine)
+        Session = sessionmaker(bind=engine)
         session = Session()
 
-        rows = session.query(State).order_by(State.id)
-        for state in rows:
+        for state in session.query(State).order_by(State.id).all():
             print("{:d}: {:s}".format(state.id, state.name))
 
         session.close()
