@@ -9,6 +9,7 @@ from model_state import Base, State
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
+
 if __name__ == "__main__":
 
     if len(argv) != 4:
@@ -28,6 +29,6 @@ if __name__ == "__main__":
 
         rows = session.query(State).order_by(State.id)
         for state in rows:
-            print("{0}: {1}".format(state.id, state.name))
+            print("{:d}: {:s}".format(state.id, state.name))
 
         session.close()
