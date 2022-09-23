@@ -5,9 +5,12 @@ Write a function that finds a peak in a list of unsorted integers
 
 
 def find_peak(list_of_integers):
-
-	thelist = list_of_integers
-	if len(thelist) == 0:
+    """
+    Find number greater than is previous and next
+    in a list of number
+    """
+    thelist = list_of_integers
+    if len(thelist) == 0:
         return None
 
     debut = 0
@@ -24,6 +27,6 @@ def find_peak(list_of_integers):
     if thelist[mid] < thelist[mid-1]:
         return find_peak(thelist[debut:mid+1])
     elif thelist[mid] < thelist[mid+1]:
-        return find_peak(l[mid:fin+1])
+        return find_peak(thelist[mid:fin+1])
     else:
         return thelist[debut]
