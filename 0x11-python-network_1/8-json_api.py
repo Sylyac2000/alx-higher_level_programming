@@ -9,21 +9,15 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-    if len(argv) == 2:
-        thehtml = ""
-        listargs = argv[1:]
-        theurl = 'http://0.0.0.0:5000/search_user'
-        if listargs[0]:
-            donnees = {'q': listargs[0]}
+    q = argv[1] if len(argv) == 2 else ""
+    theurl = 'http://bebef3794618.4bd1fe4c.alx-cod.online:5000/search_user'
+    response = requests.post(theurl, data={'q': q})
+    try:
+        responsedict = response.json()
+        id, name = responsedict.get('id'), responsedict.get('name')
+        if len(responsedict) == 0 or not id or not name:
+            print("No result")
         else:
-            donnees = {'q': ''}
-        response = requests.post(theurl, donnees)
-
-        try:
-            dicdata = response.json()
-            if dicdata:
-                print("[{}] {}".format(dicdata.get('id'), dicdata.get('name')))
-            else:
-                print("No result")
-        except ValueError as e:
-            print("Not a valid JSON")
+            print("[{}] {}".format(responsedict.get('id'), responsedict.get('name')))
+    except:
+        print("Not a valid JSON")
