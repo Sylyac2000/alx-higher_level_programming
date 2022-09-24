@@ -9,10 +9,10 @@ if __name__ == "__main__":
     import requests
     from sys import argv
 
-    if len(argv) == 3:
+    if len(argv) == 2:
         thehtml = ""
         listargs = argv[1:]
-        theurl = listargs[0]
+        theurl = 'http://0.0.0.0:5000/search_user'
         if listargs[1]:
             donnees = {'q': listargs[1]}
         else
