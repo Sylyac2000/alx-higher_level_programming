@@ -12,12 +12,12 @@ if __name__ == "__main__":
     q = argv[1] if len(argv) == 2 else ""
     theurl = 'http://0.0.0.0:5000/search_user'
     payload = {'q': q}
-    response = requests.post(theurl, data=payload)
+    r = requests.post(theurl, data=payload)
 
     try:
-        responsedict = response.json()
-        if responsedict:
-            print("[{}] {}".format(responsedict.get('id'), responsedict.get('name')))
+        dic = r.json()
+        if dic:
+            print("[{}] {}".format(dic.get('id'), dic.get('name')))
         else:
             print("No result")
     except ValueError as e:
