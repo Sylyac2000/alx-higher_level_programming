@@ -10,7 +10,6 @@ if __name__ == "__main__":
     thehtml = ""
     theurl = "https://alx-intranet.hbtn.io/status"
     response = requests.get(theurl)
-    print(response.text)
     print('Body response:')
     print("\t- type: {}".format(type(response.text)))
     print("\t- content: {}".format(response.text))
