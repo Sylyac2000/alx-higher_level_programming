@@ -10,14 +10,15 @@ if __name__ == "__main__":
     from sys import argv
 
     q = argv[1] if len(argv) == 2 else ""
-    theurl = 'http://bebef3794618.4bd1fe4c.alx-cod.online:5000/search_user'
-    response = requests.post(theurl, data={'q': q})
+    url = 'http://0.0.0.0:5000/search_user'
+    payload = {'q': q}
+    r = requests.post(url, data=payload)
+
     try:
-        responsedict = response.json()
-        id, name = responsedict.get('id'), responsedict.get('name')
-        if len(responsedict) == 0 or not id or not name:
-            print("No result")
+        dic = r.json()
+        if dic:
+            print("[{}] {}".format(dic.get('id'), dic.get('name')))
         else:
-            print("[{}] {}".format(responsedict.get('id'), responsedict.get('name')))
-    except:
+            print("No result")
+    except ValueError as e:
         print("Not a valid JSON")
