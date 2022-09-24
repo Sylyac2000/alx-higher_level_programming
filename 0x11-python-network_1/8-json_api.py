@@ -15,15 +15,15 @@ if __name__ == "__main__":
         theurl = 'http://0.0.0.0:5000/search_user'
         if listargs[1]:
             donnees = {'q': listargs[1]}
-        else
-            donnees = {'q': ''}
-    response = requests.post(theurl, donnees)
-
-    try:
-        dicdata = response.json()
-        if dicdata:
-            print("[{}] {}".format(dicdata.get('id'), dicdata.get('name')))
         else:
-            print("No result")
-    except ValueError as e:
-        print("Not a valid JSON")
+            donnees = {'q': ''}
+        response = requests.post(theurl, donnees)
+
+        try:
+            dicdata = response.json()
+            if dicdata:
+                print("[{}] {}".format(dicdata.get('id'), dicdata.get('name')))
+            else:
+                print("No result")
+        except ValueError as e:
+            print("Not a valid JSON")
