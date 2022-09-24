@@ -13,8 +13,8 @@ if __name__ == "__main__":
         thehtml = ""
         listargs = argv[1:]
         theurl = 'http://0.0.0.0:5000/search_user'
-        if listargs[1]:
-            donnees = {'q': listargs[1]}
+        if listargs[0]:
+            donnees = {'q': listargs[0]}
         else:
             donnees = {'q': ''}
         response = requests.post(theurl, donnees)
